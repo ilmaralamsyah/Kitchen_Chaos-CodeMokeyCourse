@@ -26,15 +26,12 @@ public class KitchenObject : MonoBehaviour
 
         if (clearCounter.HasKitchenObject())
         {
-            Debug.LogError("Already has an item");
+            Debug.LogError("Has Object Here");
         }
 
         this.clearCounter = clearCounter;
         clearCounter.SetKitchenObject(this);
-
-        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
+        transform.parent = clearCounter.GetNewPositionFollow();
         transform.localPosition = Vector3.zero;
     }
-
-
 }
