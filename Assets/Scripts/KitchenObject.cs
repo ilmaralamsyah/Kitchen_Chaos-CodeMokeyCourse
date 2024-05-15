@@ -26,7 +26,7 @@ public class KitchenObject : MonoBehaviour
 
         if (clearCounter.HasKitchenObject())
         {
-            Debug.LogError("Has Object Here");
+            Debug.LogError("Has an Object Here");
         }
 
         this.clearCounter = clearCounter;
