@@ -26,7 +26,7 @@ public class KitchenObject : MonoBehaviour
 
         if (clearCounter.HasKitchenObject())
         {
-            Debug.LogError("Already has an item");
+            Debug.LogError("Already has an item here");
         }
 
         this.clearCounter = clearCounter;
