@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &259115064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 362052831673957407, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093568637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9456ec07fc29e8644b6281447a84a01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +422,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 362052831673957407, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 89787c3d77e6caa47955c8426836c450,
+        type: 2}
     - target: {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077,
         type: 3}
       propertyPath: tomatoPrefab
@@ -432,6 +450,16 @@ PrefabInstance:
       propertyPath: secondClearCounter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7442809587539572971, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577144577163652775, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+        type: 3}
+      propertyPath: clearCounter
+      value: 
+      objectReference: {fileID: 259115064}
     - target: {fileID: 8577144577163652775, guid: f0f370b959cd0ec4cbf0c47e1baef077,
         type: 3}
       propertyPath: visualGameObject
@@ -497,24 +525,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0f370b959cd0ec4cbf0c47e1baef077, type: 3}
---- !u!114 &1548748114 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077,
-    type: 3}
-  m_PrefabInstance: {fileID: 1093568637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769b2154a57f9514c91eed2022571346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1772489064 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3317398262433314779, guid: f0f370b959cd0ec4cbf0c47e1baef077,
-    type: 3}
-  m_PrefabInstance: {fileID: 1739301703784891002}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1891567942 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5067260728397232541, guid: 8c4c82a3e37595f45a58c37325c55158,
@@ -533,6 +543,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1093568637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2137273511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 362052831673957407, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1739301703784891002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9456ec07fc29e8644b6281447a84a01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1739301703784891002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,27 +563,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+    - target: {fileID: 7442809587539572971, guid: f0f370b959cd0ec4cbf0c47e1baef077,
         type: 3}
-      propertyPath: isTesting
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077,
+    - target: {fileID: 8577144577163652775, guid: f0f370b959cd0ec4cbf0c47e1baef077,
         type: 3}
-      propertyPath: counterTopPoint
+      propertyPath: clearCounter
       value: 
-      objectReference: {fileID: 1772489064}
-    - target: {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077,
-        type: 3}
-      propertyPath: kitchenObjectSO
-      value: 
-      objectReference: {fileID: 11400000, guid: b54ee5b9116816f49b89f1868256d5ce,
-        type: 2}
-    - target: {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077,
-        type: 3}
-      propertyPath: secondClearCounter
-      value: 
-      objectReference: {fileID: 1548748114}
+      objectReference: {fileID: 2137273511}
     - target: {fileID: 8762722187119036632, guid: f0f370b959cd0ec4cbf0c47e1baef077,
         type: 3}
       propertyPath: m_Name
@@ -617,7 +628,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4744316855697512727, guid: f0f370b959cd0ec4cbf0c47e1baef077, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

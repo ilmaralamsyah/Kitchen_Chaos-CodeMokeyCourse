@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9071829269410580019}
   - component: {fileID: 5190339550786352962}
-  - component: {fileID: 4744316855697512727}
+  - component: {fileID: 362052831673957407}
   m_Layer: 6
   m_Name: ClearCounter
   m_TagString: Untagged
@@ -88,7 +88,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &4744316855697512727
+--- !u!114 &362052831673957407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,12 +97,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8762722187119036632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769b2154a57f9514c91eed2022571346, type: 3}
+  m_Script: {fileID: 11500000, guid: 9456ec07fc29e8644b6281447a84a01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tomatoPrefab: {fileID: 648246323134706082, guid: 4e0837452ab66394a9cc8c43a9d1cc96,
-    type: 3}
-  counterTopPosint: {fileID: 3317398262433314779}
+  kitchenObjectSO: {fileID: 11400000, guid: b54ee5b9116816f49b89f1868256d5ce, type: 2}
+  counterTopPoint: {fileID: 3317398262433314779}
 --- !u!1001 &950349044049280961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -304,5 +303,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e44f5158f84d545a08b43ecc8c5844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearCounter: {fileID: 4744316855697512727}
+  clearCounter: {fileID: 0}
   visualGameObject: {fileID: 3257264630011715342}
