@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CuttingCounter : BaseCounter
 {
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private CuttingRecipeSO[]cuttingRecipeSOArray;
 
 
     public override void Interact(Player player)
@@ -13,7 +13,10 @@ public class CuttingCounter : BaseCounter
         {
             if (player.HasKitchenObject())
             {
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                if (HasInputWithRcipe(player.GetKitchenObject().GetKitchenObjectSO()))
+                {
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                }
             }
         }
         else
@@ -29,16 +32,42 @@ public class CuttingCounter : BaseCounter
         }
     }
 
+    private bool HasInputWithRcipe(KitchenObjectSO inputKitchenObjectSO)
+    {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
+        {
+            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public override void InteractAlternate(Player player)
     {
-        if(HasKitchenObject())
+        if (HasKitchenObject() && HasInputWithRcipe(GetKitchenObject().GetKitchenObjectSO()))
         {
             if(!player.HasKitchenObject())
             {
+                KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+
                 GetKitchenObject().DestroySelf();
 
-                KitchenObject.SpawnKitchenObject(kitchenObjectSO, this);
+                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
             }
         }
+    }
+
+    private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
+    {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
+        {
+            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            {
+                return cuttingRecipeSO.output;
+            }
+        }
+        return null;
     }
 }
