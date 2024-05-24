@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingCounter : BaseCounter
+public class CuttingCounter : BaseCounter, IHasProgress
 {
 
-    public event EventHandler <OnCuttingProgressChangedArgs> OnCuttingProgressChanged;
-    public class OnCuttingProgressChangedArgs : EventArgs {  
-        public float progressNormalized; 
-    }
+    public event EventHandler <IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
+    
     public event EventHandler OnCut;
 
     //public Action OnCut2; using action
@@ -33,9 +31,9 @@ public class CuttingCounter : BaseCounter
 
                     cuttingProgress = 0;
 
-                    OnCuttingProgressChanged?.Invoke(this, new OnCuttingProgressChangedArgs
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
-                        progressNormalized = (float)cuttingProgress / cuttingRecipeSO.maxCuttingStep
+                        progressChanged = (float)cuttingProgress / cuttingRecipeSO.maxCuttingStep
                     });
                 }
             }
@@ -49,6 +47,10 @@ public class CuttingCounter : BaseCounter
             else
             {
                 GetKitchenObject().SetKitchenObjectParent(player);
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressChanged = 0f
+                });
             }
         }
     }
@@ -63,9 +65,9 @@ public class CuttingCounter : BaseCounter
                 cuttingProgress++;
 
                 CuttingRecipeSO cuttingRecipeSO = GetOutputFromInput(GetKitchenObject().GetKitchenObjectSO());
-                OnCuttingProgressChanged?.Invoke(this, new OnCuttingProgressChangedArgs
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                 {
-                    progressNormalized = (float)cuttingProgress / cuttingRecipeSO.maxCuttingStep
+                    progressChanged = (float)cuttingProgress / cuttingRecipeSO.maxCuttingStep
                 });
 
                 OnCut?.Invoke(this, EventArgs.Empty);
