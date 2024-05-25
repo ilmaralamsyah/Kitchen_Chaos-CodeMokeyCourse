@@ -81,7 +81,6 @@ public class StoveCounter : BaseCounter, IHasProgress
                     }
                     break;
                 case State.Fried:
-                    Debug.Log("Burning");
                     if (HasKitchenObject())
                     {
                         burningTimer += Time.deltaTime;
@@ -119,7 +118,6 @@ public class StoveCounter : BaseCounter, IHasProgress
             }
 
         }
-        Debug.Log(state);
     }
 
     public override void Interact(Player player)
