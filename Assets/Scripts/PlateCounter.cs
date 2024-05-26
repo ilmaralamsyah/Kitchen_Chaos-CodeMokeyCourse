@@ -43,6 +43,10 @@ public class PlateCounter : BaseCounter
                 OnPickedUpPlate?.Invoke(this, EventArgs.Empty);
             }
         }
+        else if (player.HasKitchenObject())
+        {
+            //if()
+        }
     }
 
 
