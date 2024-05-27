@@ -8,7 +8,11 @@ public class KitchenObject : MonoBehaviour
 
     private IKitchenObjectParent kitchenObjectParent;
 
-    public KitchenObjectSO GetKitchenObjectSO() {
+    private float fryingTimeElapsed;
+    private float burningTimeElapsed;
+
+    public KitchenObjectSO GetKitchenObjectSO()
+    {
         return kitchenObjectSO;
     }
 
@@ -39,6 +43,45 @@ public class KitchenObject : MonoBehaviour
     {
         kitchenObjectParent.ClearKitchenObject();
         Destroy(gameObject);
+    }
+
+
+
+    public bool TryGetPlate(out PlateKitchenObject plateKitchenObject)
+    {
+        if (this is PlateKitchenObject)
+        {
+            plateKitchenObject = this as PlateKitchenObject;
+            return true;
+        }
+        else
+        {
+            plateKitchenObject = null;
+            return false;
+        }
+    }
+
+
+    public void SetKitchenObjectFryingProgress(float fryingTimeElapsed)
+    {
+        this.fryingTimeElapsed = fryingTimeElapsed;
+
+    }
+
+    public void SetKitchenObjectBurningProgress(float burningTimeElapsed)
+    {
+        this.burningTimeElapsed = burningTimeElapsed;
+    }
+    
+
+    public float GetKitchenObjectFryingProgress()
+    {
+        return fryingTimeElapsed;
+    }
+
+    public float GetKitchenObjectBurningProgress()
+    {
+        return burningTimeElapsed;
     }
 
     public static KitchenObject SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
