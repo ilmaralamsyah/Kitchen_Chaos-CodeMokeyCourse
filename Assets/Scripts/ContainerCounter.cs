@@ -10,7 +10,7 @@ public class ContainerCounter : BaseCounter, IKitchenObjectParent
 
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    
+
 
     public override void Interact(Player player)
     {
@@ -27,9 +27,32 @@ public class ContainerCounter : BaseCounter, IKitchenObjectParent
                 player.GetKitchenObject().SetKitchenObjectParent(this);
             }
         }
-        else if(HasKitchenObject() && !player.HasKitchenObject())
+        else if (HasKitchenObject())
         {
-            GetKitchenObject().SetKitchenObjectParent(player);
+            if (!player.HasKitchenObject())
+            {
+                GetKitchenObject().SetKitchenObjectParent(player);
+            } 
+            else
+            {
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
+                }
+                else
+                {
+                    if (GetKitchenObject().TryGetPlate(out plateKitchenObject))
+                    {
+                        if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO()))
+                        {
+                            player.GetKitchenObject().DestroySelf();
+                        }
+                    }
+                }
+            }
         }
     }
 
