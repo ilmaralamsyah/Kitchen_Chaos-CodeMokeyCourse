@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,9 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+
+    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeCompleted;
 
     public static DeliveryManager Instance;
 
@@ -24,6 +28,7 @@ public class DeliveryManager : MonoBehaviour
 
     private void Update()
     {
+
         spawnRecipeTimer -= Time.deltaTime;
         if (spawnRecipeTimer <= 0)
         {
@@ -32,8 +37,9 @@ public class DeliveryManager : MonoBehaviour
             if (waitingRecipeSOList.Count < waitingRecipeMax)
             {
                 RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
-                Debug.Log(waitingRecipeSO.recipeName);
                 waitingRecipeSOList.Add(waitingRecipeSO);
+
+                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
     }
@@ -44,7 +50,7 @@ public class DeliveryManager : MonoBehaviour
         {
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
 
-            if(waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            if (waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 bool recipeAndDeliveredItemMatches = true;
                 foreach (KitchenObjectSO recipeKithcenObjectSO in waitingRecipeSO.kitchenObjectSOList)
@@ -52,7 +58,7 @@ public class DeliveryManager : MonoBehaviour
                     bool ingredientMatches = false;
                     foreach (KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
                     {
-                        if(recipeKithcenObjectSO == plateKitchenObjectSO)
+                        if (recipeKithcenObjectSO == plateKitchenObjectSO)
                         {
                             ingredientMatches = true;
                             break;
@@ -70,11 +76,17 @@ public class DeliveryManager : MonoBehaviour
                     //player delivered correct item
                     Debug.Log("Player delivered correct item");
                     waitingRecipeSOList.RemoveAt(i);
+                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
         }
 
         Debug.Log("Player delivered wrong item");
+    }
+
+    public List<RecipeSO> GetRecipeSOList()
+    {
+        return waitingRecipeSOList;
     }
 }
