@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class DeliveryManager : MonoBehaviour
 {
     public static DeliveryManager Instance;
+
+    public event EventHandler OnOrderRecipeSpawned;
+    public event EventHandler OnOrderRecipeCompleted;
 
     [SerializeField] private RecipeListSO recipeListSO;
 
@@ -32,9 +36,11 @@ public class DeliveryManager : MonoBehaviour
 
             if(ordersRecipeSOList.Count < maxOrderRecipe)
             {
-                RecipeSO orderRecipeSO = recipeListSO.recipeSOList[Random.Range(0, recipeListSO.recipeSOList.Count)];
+                RecipeSO orderRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
                 Debug.Log(orderRecipeSO.recipeName);
                 ordersRecipeSOList.Add(orderRecipeSO);
+
+                OnOrderRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
     }
@@ -68,11 +74,17 @@ public class DeliveryManager : MonoBehaviour
                 {
                     Debug.Log("Player delivered correct orders");
                     ordersRecipeSOList.RemoveAt(i);
+                    OnOrderRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
         }
 
         Debug.Log("Player delivered incorrect orders");
+    }
+
+    public List<RecipeSO> GetOrderRecipeSOList()
+    {
+        return ordersRecipeSOList;
     }
 }

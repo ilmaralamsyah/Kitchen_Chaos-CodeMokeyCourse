@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e555c7a86c9824c950b1f9874069bf, type: 3}
   m_Name: VeggieBurger
   m_EditorClassIdentifier: 
-  kitchenObjectSO:
+  kitchenObjectSOList:
   - {fileID: 11400000, guid: b54ee5b9116816f49b89f1868256d5ce, type: 2}
-  - {fileID: 11400000, guid: 2f2286042af22c84cafa4d00c5c9ed1b, type: 2}
   - {fileID: 11400000, guid: 824307cbd3f116e48a398b939c959c8c, type: 2}
+  - {fileID: 11400000, guid: b87a129887dcd734986ec8096381da16, type: 2}
   - {fileID: 11400000, guid: 1f04394c7451b6644addc30bc632a074, type: 2}
   recipeName: Veggie Burger
+  recipeSprite: {fileID: 21300000, guid: bee24f07c57157e45a946eed3bfe8b84, type: 3}
