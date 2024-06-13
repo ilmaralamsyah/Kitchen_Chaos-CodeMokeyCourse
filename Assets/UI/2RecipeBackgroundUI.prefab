@@ -78,6 +78,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalIngredient: 2
   recipeIcon: {fileID: 3815599284068653925}
+  ingredientContainer: {fileID: 7042443618361085791}
+  ingredientBackground: {fileID: 7320039314187606670}
+  ingredientIcon: {fileID: 7076988651418651358}
 --- !u!1 &5780885184726015096
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,11 +559,21 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7076988651418651358}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3460795511545512980, guid: e779dfeb8c8e67f42a347d7b739d5f46,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1671812133940706904}
   m_SourcePrefab: {fileID: 100100000, guid: e779dfeb8c8e67f42a347d7b739d5f46, type: 3}
 --- !u!224 &3980501087360325582 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9077831728343749783, guid: e779dfeb8c8e67f42a347d7b739d5f46,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388411245077988185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7042443618361085791 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3133575510189739014, guid: e779dfeb8c8e67f42a347d7b739d5f46,
     type: 3}
   m_PrefabInstance: {fileID: 5388411245077988185}
   m_PrefabAsset: {fileID: 0}
@@ -570,3 +583,22 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5388411245077988185}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8845153595968440141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3460795511545512980, guid: e779dfeb8c8e67f42a347d7b739d5f46,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388411245077988185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1671812133940706904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845153595968440141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7634f9983b210c46b0c1dccb58a43af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientIcon: {fileID: 7984485722523754763}

@@ -17,7 +17,7 @@ public class DeliveryManager : MonoBehaviour
 
     private float spawnRecipeTimer;
     private float spawnRecipeTimerMax = 4f;
-    private int maxOrderRecipe = 6;
+    private int maxOrderRecipe = 7;
 
 
     private void Awake()
@@ -37,7 +37,6 @@ public class DeliveryManager : MonoBehaviour
             if(ordersRecipeSOList.Count < maxOrderRecipe)
             {
                 RecipeSO orderRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
-                Debug.Log(orderRecipeSO.recipeName);
                 ordersRecipeSOList.Add(orderRecipeSO);
 
                 OnOrderRecipeSpawned?.Invoke(this, EventArgs.Empty);
@@ -72,7 +71,6 @@ public class DeliveryManager : MonoBehaviour
                 }
                 if (itemInPlateAndRecipeMatched)
                 {
-                    Debug.Log("Player delivered correct orders");
                     ordersRecipeSOList.RemoveAt(i);
                     OnOrderRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     return;
