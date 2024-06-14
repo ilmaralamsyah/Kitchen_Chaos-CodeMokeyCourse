@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kitchenObjectSOList:
   - {fileID: 11400000, guid: b54ee5b9116816f49b89f1868256d5ce, type: 2}
-  - {fileID: 11400000, guid: 8cd2e2516469fd54ab0096ed94a272e3, type: 2}
-  - {fileID: 11400000, guid: 2f2286042af22c84cafa4d00c5c9ed1b, type: 2}
+  - {fileID: 11400000, guid: 4ac68634460d5bc45a8fa677b8812891, type: 2}
+  - {fileID: 11400000, guid: 824307cbd3f116e48a398b939c959c8c, type: 2}
   recipeName: Cheese Burger
   recipeSprite: {fileID: 21300000, guid: 77b28124b8bda494381c80bd5aa42c22, type: 3}
