@@ -10,14 +10,14 @@ public class StoveCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        stoveCounter.OnFrying += StoveCounter_OnFrying;
+        stoveCounter.OnStateChanged += StoveCounter_OnFrying;
 
 }
 
     private void StoveCounter_OnFrying(object sender, StoveCounter.OnFryingEventArgs e)
     {
-        bool isFrying = e.stateChanged == StoveCounter.State.Frying || e.stateChanged == StoveCounter.State.Fried;
-        stoveFX.SetActive(isFrying);
-        stoveParticle.SetActive(isFrying);
+        bool isStateChanged = e.stateChanged == StoveCounter.State.Frying || e.stateChanged == StoveCounter.State.Fried;
+        stoveFX.SetActive(isStateChanged);
+        stoveParticle.SetActive(isStateChanged);
     }
 }

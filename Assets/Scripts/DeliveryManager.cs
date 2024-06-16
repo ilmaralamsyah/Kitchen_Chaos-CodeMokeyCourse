@@ -9,6 +9,8 @@ public class DeliveryManager : MonoBehaviour
 
     public event EventHandler OnOrderRecipeSpawned;
     public event EventHandler OnOrderRecipeCompleted;
+    public event EventHandler OnOrderRecipeSuccess;
+    public event EventHandler OnOrderRecipeFailed;
 
     [SerializeField] private RecipeListSO recipeListSO;
 
@@ -73,12 +75,13 @@ public class DeliveryManager : MonoBehaviour
                 {
                     ordersRecipeSOList.RemoveAt(i);
                     OnOrderRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    OnOrderRecipeSuccess?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
         }
-
-        Debug.Log("Player delivered incorrect orders");
+        OnOrderRecipeFailed?.Invoke(this, EventArgs.Empty);
+        //Debug.Log("Player delivered incorrect orders");
     }
 
     public List<RecipeSO> GetOrderRecipeSOList()

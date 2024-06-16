@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class StoveCounter : BaseCounter, IHasProgress
 {
-    public event EventHandler<OnFryingEventArgs> OnFrying;
+
+    public event EventHandler<OnFryingEventArgs> OnStateChanged;
     public class OnFryingEventArgs : EventArgs
     {
         public State stateChanged;
@@ -38,7 +39,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
     private void Start()
     {
-        OnFrying?.Invoke(this, new OnFryingEventArgs
+        OnStateChanged?.Invoke(this, new OnFryingEventArgs
         {
             stateChanged = State.Idle,
         });
@@ -79,7 +80,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         state = State.Fried;
 
-                        OnFrying?.Invoke(this, new OnFryingEventArgs
+                        OnStateChanged?.Invoke(this, new OnFryingEventArgs
                         {
                             stateChanged = State.Fried,
                         });
@@ -120,7 +121,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         state = State.Burned;
 
-                        OnFrying?.Invoke(this, new OnFryingEventArgs
+                        OnStateChanged?.Invoke(this, new OnFryingEventArgs
                         {
                             stateChanged = State.Burned,
                         });
@@ -152,7 +153,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         state = State.Frying;
 
-                        OnFrying?.Invoke(this, new OnFryingEventArgs
+                        OnStateChanged?.Invoke(this, new OnFryingEventArgs
                         {
                             stateChanged = State.Frying,
                         });
@@ -172,7 +173,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         state = State.Fried;
 
-                        OnFrying?.Invoke(this, new OnFryingEventArgs
+                        OnStateChanged?.Invoke(this, new OnFryingEventArgs
                         {
                             stateChanged = State.Fried
                         });
@@ -188,7 +189,7 @@ public class StoveCounter : BaseCounter, IHasProgress
             {
                 GetKitchenObject().SetKitchenObjectParent(player);
                 state = State.Idle;
-                OnFrying?.Invoke(this, new OnFryingEventArgs
+                OnStateChanged?.Invoke(this, new OnFryingEventArgs
                 {
                     stateChanged = State.Idle,
                 });
@@ -209,7 +210,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                             GetKitchenObject().DestroySelf();
 
                             state = State.Idle;
-                            OnFrying?.Invoke(this, new OnFryingEventArgs
+                            OnStateChanged?.Invoke(this, new OnFryingEventArgs
                             {
                                 stateChanged = State.Idle,
                             });

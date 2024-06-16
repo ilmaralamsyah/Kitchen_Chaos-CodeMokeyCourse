@@ -10,7 +10,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
     
     public event EventHandler OnCut;
 
-    //public Action OnCut2; using action
+    public static event EventHandler OnAnyCut;
 
     [SerializeField] private CuttingRecipeSO[]cuttingRecipeSOArray;
 
@@ -79,6 +79,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
                 OnCut?.Invoke(this, EventArgs.Empty);
                 //OnCut2?.Invoke(); // using action
+                OnAnyCut.Invoke(this, EventArgs.Empty);
 
                 if (cuttingProgress >= cuttingRecipeSO.maxCuttingStep)
                 {
