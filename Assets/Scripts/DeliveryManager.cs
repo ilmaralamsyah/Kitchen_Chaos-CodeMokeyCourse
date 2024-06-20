@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
-    public static DeliveryManager Instance;
+    public static DeliveryManager Instance { get; private set; }
 
     public event EventHandler OnOrderRecipeSpawned;
     public event EventHandler OnOrderRecipeCompleted;
@@ -20,6 +20,7 @@ public class DeliveryManager : MonoBehaviour
     private float spawnRecipeTimer;
     private float spawnRecipeTimerMax = 4f;
     private int maxOrderRecipe = 7;
+    private int orderDelivered;
 
 
     private void Awake()
@@ -73,6 +74,7 @@ public class DeliveryManager : MonoBehaviour
                 }
                 if (itemInPlateAndRecipeMatched)
                 {
+                    orderDelivered++;
                     ordersRecipeSOList.RemoveAt(i);
                     OnOrderRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnOrderRecipeSuccess?.Invoke(this, EventArgs.Empty);
@@ -87,5 +89,10 @@ public class DeliveryManager : MonoBehaviour
     public List<RecipeSO> GetOrderRecipeSOList()
     {
         return ordersRecipeSOList;
+    }
+
+    public int GetOrderDelivered()
+    {
+        return orderDelivered;
     }
 }
