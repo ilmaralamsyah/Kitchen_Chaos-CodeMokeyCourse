@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    //public static event EventHandler OnPlayerWalking;
-
     private Player player;
 
     private void Awake()
