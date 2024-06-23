@@ -11,6 +11,11 @@ public class DeliveryManager : MonoBehaviour
     public event EventHandler OnOrderRecipeCompleted;
     public event EventHandler OnOrderRecipeSuccess;
     public event EventHandler OnOrderRecipeFailed;
+    public event EventHandler <TotalIngredientOrderSuccessEventArgs> TotalIngredientOrderDelivered;
+    public class TotalIngredientOrderSuccessEventArgs : EventArgs
+    {
+        public int totalIngredientOrder;
+    }
 
     [SerializeField] private RecipeListSO recipeListSO;
 
@@ -76,6 +81,10 @@ public class DeliveryManager : MonoBehaviour
                 {
                     orderDelivered++;
                     ordersRecipeSOList.RemoveAt(i);
+                    TotalIngredientOrderDelivered?.Invoke(this, new TotalIngredientOrderSuccessEventArgs
+                    {
+                        totalIngredientOrder = plateKitchenObject.GetKitchenObjectSOList().Count
+                    });
                     OnOrderRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnOrderRecipeSuccess?.Invoke(this, EventArgs.Empty);
                     return;
@@ -83,6 +92,10 @@ public class DeliveryManager : MonoBehaviour
             }
         }
         OnOrderRecipeFailed?.Invoke(this, EventArgs.Empty);
+        TotalIngredientOrderDelivered?.Invoke(this, new TotalIngredientOrderSuccessEventArgs
+        {
+            totalIngredientOrder = -plateKitchenObject.GetKitchenObjectSOList().Count
+        });
         //Debug.Log("Player delivered incorrect orders");
     }
 

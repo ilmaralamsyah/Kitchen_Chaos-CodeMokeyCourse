@@ -17,8 +17,8 @@ public class TrashCounter : BaseCounter
     {
         if (player.HasKitchenObject())
         {
-            OnAnyTrashedItem?.Invoke(OnAnyTrashedItem, EventArgs.Empty);
             player.GetKitchenObject().DestroySelf();
+            OnAnyTrashedItem?.Invoke(this, EventArgs.Empty);
         }
     }
 }

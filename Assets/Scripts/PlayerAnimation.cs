@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private const string IS_WALKING = "IsWalking";
-    Animator animator;
-    Player player;
+    private Animator animator;
+    private Player player;
 
     private void Start()
     {

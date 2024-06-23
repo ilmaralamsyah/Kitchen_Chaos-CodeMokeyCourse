@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameUnPaused;
 
 
-    [SerializeField] private float gamePlayingTimerMax = 20f;
+    [SerializeField] private float gamePlayingTimerMax = 210f;
     private float gamePlayingTimer;
 
     private enum State
@@ -29,6 +30,9 @@ public class GameManager : MonoBehaviour
     private float waitinToStartTimer = 0.1f;
     private float CountdownToStartTimer = 3f;
     private bool isPaused;
+    private int plusPoint = 10;
+    private int minusPoint = 5;
+    private int totalPoint = 0;
 
 
     private void Awake()
@@ -41,6 +45,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnPause += GameInput_OnPause;
+        DeliveryManager.Instance.TotalIngredientOrderDelivered += DeliveryManager_TotalIngredientOrderDelivered;
+    }
+
+    private void DeliveryManager_TotalIngredientOrderDelivered(object sender, DeliveryManager.TotalIngredientOrderSuccessEventArgs e)
+    {
+        if(e.totalIngredientOrder >= 0)
+        {
+            totalPoint += plusPoint * e.totalIngredientOrder;
+        }
+        else
+        {
+            totalPoint += minusPoint * e.totalIngredientOrder;
+        }
+        
     }
 
     private void GameInput_OnPause(object sender, EventArgs e)
@@ -108,6 +126,13 @@ public class GameManager : MonoBehaviour
         return gamePlayingTimer/gamePlayingTimerMax;
     }
 
+    public string GetGamePlayingTimerFormatted()
+    {
+        float minutes = Mathf.FloorToInt(gamePlayingTimer / 60);
+        float seconds = Mathf.FloorToInt(gamePlayingTimer % 60);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
     public void TogglePauseGame()
     {
         isPaused = !isPaused;
@@ -121,6 +146,10 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             OnGameUnPaused?.Invoke(this, EventArgs.Empty);
         }
-        
+    }
+
+    public int GetTotalPoint()
+    {
+        return totalPoint;
     }
 }

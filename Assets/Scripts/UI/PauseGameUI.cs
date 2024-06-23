@@ -25,7 +25,7 @@ public class PauseGameUI : MonoBehaviour
 
         optionsButton.onClick.AddListener(() =>
         {
-            OptionsUI.Instance.Show();
+            OptionUI.Instance.Show();
         });
     }
 

@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI deliveredOrderText;
+    [SerializeField] private TextMeshProUGUI totalPointText;
+    [SerializeField] private Button mainMenuButton;
+
+    private void Awake()
+    {
+        mainMenuButton.onClick.AddListener(() =>
+        {
+            Loader.Load(Loader.Scene.MainMenuScene);
+        });
+    }
 
     private void Start()
     {
@@ -20,6 +31,7 @@ public class GameOverUI : MonoBehaviour
         {
             Show();
             deliveredOrderText.text = DeliveryManager.Instance.GetOrderDelivered().ToString();
+            totalPointText.text = GameManager.Instance.GetTotalPoint().ToString();
         }
         else
         {
