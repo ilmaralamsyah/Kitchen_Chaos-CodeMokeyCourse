@@ -19,6 +19,9 @@ public class ControllerSettingUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactText;
     [SerializeField] private TextMeshProUGUI interactAlternateText;
     [SerializeField] private TextMeshProUGUI pauseText;
+    [SerializeField] private TextMeshProUGUI gamepadInteractText;
+    [SerializeField] private TextMeshProUGUI gamepadInteractAlternateText;
+    [SerializeField] private TextMeshProUGUI gamepadPauseText;
 
     [Header("Controller Button")]
     [SerializeField] private Button moveUpButton;
@@ -28,6 +31,9 @@ public class ControllerSettingUI : MonoBehaviour
     [SerializeField] private Button interactButton;
     [SerializeField] private Button interactAlternateButton;
     [SerializeField] private Button pauseButton;
+    [SerializeField] private Button gamepadInteractButton;
+    [SerializeField] private Button gamepadInteractAlternateButton;
+    [SerializeField] private Button gamepadPauseButton;
 
     [SerializeField] private Transform pressToRebindTransform;
 
@@ -37,6 +43,7 @@ public class ControllerSettingUI : MonoBehaviour
 
         backButton.onClick.AddListener(() =>
         {
+            OptionUI.Instance.Show();
             Hide();
         });
 
@@ -47,6 +54,9 @@ public class ControllerSettingUI : MonoBehaviour
         interactButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.Interact); });
         interactAlternateButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.InteractAlternate); });
         pauseButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.Pause); });
+        gamepadInteractButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.GamepadInteract); });
+        gamepadInteractAlternateButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.GamepadInteractAlternate); });
+        gamepadPauseButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.GamepadPause); });
     }
 
     private void Start()
@@ -67,6 +77,9 @@ public class ControllerSettingUI : MonoBehaviour
         interactText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Interact);
         interactAlternateText.text = GameInput.Instance.GetBindingText(GameInput.Binding.InteractAlternate);
         pauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Pause);
+        gamepadInteractText.text = GameInput.Instance.GetBindingText(GameInput.Binding.GamepadInteract);
+        gamepadInteractAlternateText.text = GameInput.Instance.GetBindingText(GameInput.Binding.GamepadInteractAlternate);
+        gamepadPauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.GamepadPause);
     }
 
     private void GameManager_OnGameUnPaused(object sender, System.EventArgs e)
@@ -77,6 +90,7 @@ public class ControllerSettingUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        backButton.Select();
     }
 
     private void Hide()

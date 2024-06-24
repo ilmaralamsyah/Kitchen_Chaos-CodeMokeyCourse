@@ -83,6 +83,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             lastInteractDir = moveDir;
         }
+
         float interactDistance = 1.5f;
 
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, counterLayerMask))
@@ -119,19 +120,19 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
         if (!canMove)
         {
-            Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
+            canMove = (moveDir.x < -0.5f || moveDir.x > +0.5) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
             if (canMove)
             {
-                moveDir = moveDirZ;
+                moveDir = moveDirX;
             }
             else
             {
-                Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
+                canMove = (moveDir.z < -0.5f || moveDir.z > +0.5) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
                 if (canMove)
                 {
-                    moveDir = moveDirX;
+                    moveDir = moveDirZ;
                 }
                 else
                 {

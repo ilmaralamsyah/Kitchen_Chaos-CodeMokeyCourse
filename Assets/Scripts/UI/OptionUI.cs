@@ -18,16 +18,20 @@ public class OptionUI : MonoBehaviour
 
         audioSettingButton.onClick.AddListener(() =>
         {
+            Hide();
             AudioSettingUI.Instance.Show();
         });
 
         controllerSettingButton.onClick.AddListener(() =>
         {
             ControllerSettingUI.Instance.Show();
+            Hide();
         });
 
         backButton.onClick.AddListener(() =>
         {
+
+            PauseGameUI.Instance.Show();
             Hide();
         });
 
@@ -48,6 +52,7 @@ public class OptionUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        audioSettingButton.Select();
     }
 
     private void Hide()

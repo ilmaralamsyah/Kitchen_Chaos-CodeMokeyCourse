@@ -42,6 +42,8 @@ public class GameOverUI : MonoBehaviour
     private void Show()
     {
         gameObject.SetActive(true);
+
+        mainMenuButton.Select();
     }
 
     private void Hide()
