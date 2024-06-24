@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &184454033108699027
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1832378385825473410, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300080195636180546, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: baseCounter
+      value: 
+      objectReference: {fileID: 4843039430896726000}
+    - target: {fileID: 2300080195636180546, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: visualGameObjectArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300080195636180546, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: visualGameObjectArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 2591713775739528371}
+    - target: {fileID: 2366780785824354558, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411908522907656992, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500833185829480530, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_Name
+      value: DirtyPlateCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33999968
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813309712999147193, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229745812580405319, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      propertyPath: m_Name
+      value: DirtyPlatesCounter_Visual
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8920439466524201405, guid: f6c27657d6cec894694ae858e5cfcafc, type: 3}
+    - {fileID: 7253656194418451889, guid: f6c27657d6cec894694ae858e5cfcafc, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3500833185829480530, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4843039430896726000}
+    - targetCorrespondingSourceObject: {fileID: 6229745812580405319, guid: f6c27657d6cec894694ae858e5cfcafc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1091051455661204415}
+  m_SourcePrefab: {fileID: 100100000, guid: f6c27657d6cec894694ae858e5cfcafc, type: 3}
+--- !u!1 &2591713775739528371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2411908522907656992, guid: f6c27657d6cec894694ae858e5cfcafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 184454033108699027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3610262702285844417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3500833185829480530, guid: f6c27657d6cec894694ae858e5cfcafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 184454033108699027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4843039430896726000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610262702285844417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cb84651ea7c394386e766a82c66d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 7316255438837190850}
+  dirtyPlateKitchenObjectSO: {fileID: 11400000, guid: 3658a8a95d0eb7643919fedca8febdcf,
+    type: 2}
+--- !u!1 &6123715958151321556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6229745812580405319, guid: f6c27657d6cec894694ae858e5cfcafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 184454033108699027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1091051455661204415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123715958151321556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cca5b6c268b4894c892d335fa6b1c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dirtyPlateCounter: {fileID: 4843039430896726000}
+  counterTopPoint: {fileID: 7316255438837190850}
+  dirtyPlateVisual: {fileID: 8926365192828831829, guid: 3f218a91a7a371d46a96cbf9acc05ef3,
+    type: 3}
+--- !u!4 &7316255438837190850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7424114139707742033, guid: f6c27657d6cec894694ae858e5cfcafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 184454033108699027}
+  m_PrefabAsset: {fileID: 0}

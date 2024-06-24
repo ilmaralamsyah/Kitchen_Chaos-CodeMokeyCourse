@@ -434,7 +434,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: e21b499d164095947b7559f0267f0e63,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8920439466524201405}
+      addedObject: {fileID: 3033723165688479073}
   m_SourcePrefab: {fileID: 100100000, guid: e21b499d164095947b7559f0267f0e63, type: 3}
 --- !u!4 &6229745812580405318 stripped
 Transform:
@@ -448,7 +448,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7621625249418212589}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8920439466524201405
+--- !u!114 &3033723165688479073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6229745812580405319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423ee9553364069498765c3b3fa700b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 55523ea4b31aa3c48b1e9c6c09013875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plateCounter: {fileID: 7253656194418451889}

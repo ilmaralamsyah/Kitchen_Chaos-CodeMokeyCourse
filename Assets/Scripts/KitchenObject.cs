@@ -9,6 +9,7 @@ public class KitchenObject : MonoBehaviour
     private IKitchenObjectParent kitchenObjectParent;
 
     private float fryingTimeElapsed;
+    private float cleaningPlateTimeElapsed;
     private float burningTimeElapsed;
 
     public KitchenObjectSO GetKitchenObjectSO()
@@ -26,11 +27,6 @@ public class KitchenObject : MonoBehaviour
         if (this.kitchenObjectParent != null)
         {
             this.kitchenObjectParent.ClearKitchenObject();
-        }
-
-        if (kitchenObjectParent.HasKitchenObject())
-        {
-
         }
 
         this.kitchenObjectParent = kitchenObjectParent;
@@ -61,18 +57,29 @@ public class KitchenObject : MonoBehaviour
         }
     }
 
+    public bool TryGetDirtyPlate(out DirtyPlateKitchenObject dirtyPlateKitchenObject)
+    {
+        if (this is DirtyPlateKitchenObject)
+        {
+            dirtyPlateKitchenObject = this as DirtyPlateKitchenObject;
+            return true;
+        }
+        else
+        {
+            dirtyPlateKitchenObject = null;
+            return false;
+        }
+    }
 
     public void SetKitchenObjectFryingProgress(float fryingTimeElapsed)
     {
         this.fryingTimeElapsed = fryingTimeElapsed;
-
     }
 
     public void SetKitchenObjectBurningProgress(float burningTimeElapsed)
     {
         this.burningTimeElapsed = burningTimeElapsed;
     }
-    
 
     public float GetKitchenObjectFryingProgress()
     {
@@ -82,6 +89,16 @@ public class KitchenObject : MonoBehaviour
     public float GetKitchenObjectBurningProgress()
     {
         return burningTimeElapsed;
+    }
+
+    public void SetKitchenObjectCleaningPlateProgress(float cleaningPlateTimeElapsed)
+    {
+        this.cleaningPlateTimeElapsed = cleaningPlateTimeElapsed;
+    }
+
+    public float GetKitchenObjectCleaningPlateProgress()
+    {
+        return cleaningPlateTimeElapsed;
     }
 
     public static KitchenObject SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)

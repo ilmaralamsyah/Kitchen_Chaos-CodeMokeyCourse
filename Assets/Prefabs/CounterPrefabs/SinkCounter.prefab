@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &902117420770593166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9010126054342358887}
+  m_Layer: 6
+  m_Name: CleanedPlateTopPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9010126054342358887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902117420770593166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 1.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9071829269410580019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5037692527191286380
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 943772b63508beb48b256c16f0907b86, type: 2}
+  - {fileID: 2100000, guid: 6888b3f56c107ca4da08e41206d00611, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -214,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 7000266273154768879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 1.3, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -336,6 +367,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3317398262433314779}
+  - {fileID: 9010126054342358887}
   - {fileID: 8436100526372317904}
   - {fileID: 6912315207268682648}
   - {fileID: 7205446165010259011}
@@ -374,7 +406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cd1c94f682a2d4f8a124e658ac974d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 0}
+  counterTopPoint: {fileID: 3317398262433314779}
+  cleanedPlateTransform: {fileID: 9010126054342358887}
+  plateKitchenObjectSO: {fileID: 11400000, guid: 8955e680cb13b7749a69898a51533d52,
+    type: 2}
 --- !u!1001 &5378142090880683643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,7 +480,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 2122730210322191358}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: e21b499d164095947b7559f0267f0e63,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5199671804386299435}
   m_SourcePrefab: {fileID: 100100000, guid: e21b499d164095947b7559f0267f0e63, type: 3}
 --- !u!4 &8436100526372317904 stripped
 Transform:
@@ -453,6 +492,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5378142090880683643}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8436100526372317905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4589716710238282922, guid: e21b499d164095947b7559f0267f0e63,
+    type: 3}
+  m_PrefabInstance: {fileID: 5378142090880683643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5199671804386299435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436100526372317905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423ee9553364069498765c3b3fa700b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cleanedPlateTopPoint: {fileID: 9010126054342358887}
+  plateVisual: {fileID: 8926365192828831829, guid: 55531b05c1a3c2744aa609806e6c3d85,
+    type: 3}
 --- !u!1001 &6370275099420568691
 PrefabInstance:
   m_ObjectHideFlags: 0
