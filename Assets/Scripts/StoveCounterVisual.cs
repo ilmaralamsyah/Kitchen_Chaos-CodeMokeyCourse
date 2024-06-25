@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class StoveCounterVisual : MonoBehaviour
 {
-    [SerializeField] StoveCounter stoveCounter;
-    [SerializeField] GameObject stoveFX;
-    [SerializeField] GameObject stoveParticle;
+    [SerializeField] private StoveCounter stoveCounter;
+    [SerializeField] private GameObject stoveFX;
+    [SerializeField] private GameObject stoveParticle;
 
     private void Start()
     {
         stoveCounter.OnStateChanged += StoveCounter_OnFrying;
-
-}
+    }
 
     private void StoveCounter_OnFrying(object sender, StoveCounter.OnFryingEventArgs e)
     {

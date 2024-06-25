@@ -13,21 +13,23 @@ public class PlateCounter : BaseCounter
 
     private int plateAmountSpawned;
     private int plateAmountSpawnedMax = 4;
-    private float plateTimer;
-    private float plateTimerMax = 2f;
+
+    private void Start()
+    {
+        TrashCounter.OnPlateTrashed += TrashCounter_OnPlateTrashed;
+    }
+
+    private void TrashCounter_OnPlateTrashed(object sender, EventArgs e)
+    {
+        plateAmountSpawned--;
+    }
 
     private void Update()
     {
-        plateTimer += Time.deltaTime;
-
-        if(plateTimer > plateTimerMax)
+        if (plateAmountSpawned < plateAmountSpawnedMax)
         {
-            if(plateAmountSpawned < plateAmountSpawnedMax)
-            {
-                plateAmountSpawned++;
-                plateTimer = 0f;
-                OnSpawnedPlate?.Invoke(this, EventArgs.Empty);
-            }
+            plateAmountSpawned++;
+            OnSpawnedPlate?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -35,13 +37,9 @@ public class PlateCounter : BaseCounter
     {
         if (!player.HasKitchenObject())
         {
-            if(plateAmountSpawned > 0)
+            if (plateAmountSpawned > 0)
             {
-                if (plateAmountSpawned == plateAmountSpawnedMax) { plateTimer = 0f; }
-
                 KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
-                
-                plateAmountSpawned--;
 
                 OnPickedUpPlate?.Invoke(this, EventArgs.Empty);
             }

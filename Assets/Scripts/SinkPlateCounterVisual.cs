@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SinkPlateCounterVisual : MonoBehaviour
 {
-
+    [SerializeField] private SinkCounter sinkCounter;
     [SerializeField] private Transform cleanedPlateTopPoint;
     [SerializeField] private Transform plateVisual;
 
@@ -17,8 +17,8 @@ public class SinkPlateCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        SinkCounter.Instance.OnCleanedPlate += SinkCounter_OnCleanedPlate;
-        SinkCounter.Instance.OnPickedUpCleanPlate += SinkCounter_OnPickedUpCleanPlate;
+        sinkCounter.OnCleanedPlate += SinkCounter_OnCleanedPlate;
+        sinkCounter.OnPickedUpCleanPlate += SinkCounter_OnPickedUpCleanPlate;
     }
 
     private void SinkCounter_OnPickedUpCleanPlate(object sender, System.EventArgs e)

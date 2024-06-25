@@ -3,15 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SinkCounter : BaseCounter
+public class SinkCounter : BaseCounter, IHasProgress
 {
 
     public static SinkCounter Instance { get; private set; }
 
     public event EventHandler OnCleanedPlate;
     public event EventHandler OnPickedUpCleanPlate;
+    public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
+    public class OnStateChangedEventArgs : EventArgs
+    {
+        public State currentState;
+    }
 
-    private enum State
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
+    public class OnProgressChangedEventArgs : EventArgs
+    {
+        public float progressChanged;
+    }
+
+    public enum State
     {
         Idle,
         Cleaning,
@@ -50,6 +61,7 @@ public class SinkCounter : BaseCounter
     {
         if (!player.HasKitchenObject() && plateCleaned > 0)
         {
+            if(state == State.Cleaning) { return; }
             KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
 
             plateCleaned--;
@@ -63,6 +75,11 @@ public class SinkCounter : BaseCounter
                 if (player.GetKitchenObject().TryGetDirtyPlate(out DirtyPlateKitchenObject dirtyPlateKitchenObject))
                 {
                     state = State.Cleaning;
+                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                    {
+                        currentState = State.Cleaning
+                    });
+                    player.GetKitchenObject().gameObject.SetActive(false);
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                 }
             }
@@ -71,6 +88,10 @@ public class SinkCounter : BaseCounter
         {
             cleaningPlateTimer = GetKitchenObject().GetKitchenObjectCleaningPlateProgress();
             state = State.Cleaning;
+            OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+            {
+                currentState = State.Cleaning
+            });
         }
     }
 
@@ -81,13 +102,34 @@ public class SinkCounter : BaseCounter
             case State.Idle:
                 break;
             case State.Cleaning:
+
+                
+                cleaningPlateTimer = GetKitchenObject().GetKitchenObjectCleaningPlateProgress();
+
                 cleaningPlateTimer += Time.deltaTime;
+
+                GetKitchenObject().SetKitchenObjectCleaningPlateProgress(cleaningPlateTimer);
+
+                
+
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressChanged = cleaningPlateTimer / cleaningPlateTimerMax
+                });
+
                 if (cleaningPlateTimer > cleaningPlateTimerMax)
                 {
                     cleaningPlateTimer = 0;
-                    Debug.Log(GetKitchenObject());
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                    {
+                        progressChanged = 0f
+                    });
                     GetKitchenObject().DestroySelf();
                     state = State.Cleaned;
+                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                    {
+                        currentState = State.Cleaned
+                    });
                 }
                 break;
             case State.Cleaned:
@@ -96,6 +138,5 @@ public class SinkCounter : BaseCounter
                 state = State.Idle;
                 break;
         }
-        Debug.Log(state);
     }
 }

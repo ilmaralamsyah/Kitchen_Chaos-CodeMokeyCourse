@@ -14,27 +14,33 @@ public class DirtyPlateCounter : BaseCounter
     private int dirtyPlateAmountSpawned = 0;
     private float dirtyPlateTimer;
     private float dirtyPlateTimerMax = 10f;
-    private bool isSpawning = false;
+    private int waitingDirtyPlate;
 
     private void Start()
     {
         DeliveryManager.Instance.OnOrderRecipeSuccess += DeliveryManager_OnOrderRecipeSuccess;
+        DeliveryManager.Instance.OnOrderRecipeFailed += DeliveryManager_OnOrderRecipeFailed;
+    }
+
+    private void DeliveryManager_OnOrderRecipeFailed(object sender, EventArgs e)
+    {
+        waitingDirtyPlate++;
     }
 
     private void DeliveryManager_OnOrderRecipeSuccess(object sender, EventArgs e)
     {
-        isSpawning = true;
+        waitingDirtyPlate++;
     }
 
     private void Update()
     {
-        if (isSpawning)
+        if (waitingDirtyPlate > 0)
         {
             dirtyPlateTimer += Time.deltaTime;
             if (dirtyPlateTimer > dirtyPlateTimerMax)
             {
                 dirtyPlateAmountSpawned++;
-                isSpawning = false;
+                waitingDirtyPlate--;
                 dirtyPlateTimer = 0f;
                 OnSpawnedDirtyPlate?.Invoke(this, EventArgs.Empty);
             }
