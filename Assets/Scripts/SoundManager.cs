@@ -86,6 +86,11 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipsRefsSO.footstep, position, volume);
     }
 
+    public void PlayWarningSFX(Vector3 position)
+    {
+        PlaySound(audioClipsRefsSO.warning, position);
+    }
+
     public void ChangeVolume(float volume)
     {
         this.volume = volume;

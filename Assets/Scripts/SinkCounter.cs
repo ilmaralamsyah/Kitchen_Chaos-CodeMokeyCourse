@@ -100,6 +100,10 @@ public class SinkCounter : BaseCounter, IHasProgress
         switch (state)
         {
             case State.Idle:
+                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                {
+                    currentState = State.Idle
+                });
                 break;
             case State.Cleaning:
 

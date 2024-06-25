@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1779595, g: 0.2228133, b: 0.3049352, a: 1}
+  m_IndirectSpecularColor: {r: 0.17795609, g: 0.22280918, b: 0.30493098, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8073,7 +8073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9097,6 +9097,7 @@ Transform:
   - {fileID: 1677307376}
   - {fileID: 1998021537}
   - {fileID: 1943251481}
+  - {fileID: 1332171876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &991549675
@@ -12815,6 +12816,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000014166130288, guid: df3ee02bc1acc4455ae0b72eaba1f498,
     type: 3}
   m_PrefabInstance: {fileID: 1857978258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1332171876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5872038511583713978}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1340546782
 PrefabInstance:
@@ -21544,6 +21551,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1984bbe3280d50945a80d6e20982f979, type: 3}
+--- !u!1001 &5872038511583713978
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 982907680}
+    m_Modifications:
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811694090936656688, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600853175892962946, guid: 4e6efa782f8283d45b6517c8caf392b3,
+        type: 3}
+      propertyPath: m_Name
+      value: Board
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e6efa782f8283d45b6517c8caf392b3, type: 3}
 --- !u!224 &5937244466050885784 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7932752123102982514, guid: 98f28e5e9599c4b4e96c1dceb117af4d,

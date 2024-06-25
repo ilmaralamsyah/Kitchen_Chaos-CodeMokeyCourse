@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine.UI;
 
 public class ProgressBarUI : MonoBehaviour
 {
+
+    public event EventHandler OnProgressbarAboveHalf;
+
     [SerializeField] IHasProgress hasProgress;
     [SerializeField] Image progressBar;
 
@@ -31,6 +35,11 @@ public class ProgressBarUI : MonoBehaviour
     private void HasProgress_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
     {
         progressBar.fillAmount = e.progressChanged;
+
+        if(progressBar.fillAmount >= 0.5)
+        {
+            OnProgressbarAboveHalf?.Invoke(this, EventArgs.Empty);
+        }
 
         if (progressBar.fillAmount == 0 || progressBar.fillAmount == 1)
         {
