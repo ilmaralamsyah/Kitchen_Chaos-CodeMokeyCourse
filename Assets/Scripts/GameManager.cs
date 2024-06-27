@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnPaused;
+    public event EventHandler OnTimeLeftAlert;
+    public event EventHandler OnGameOver;
 
 
     [SerializeField] private float gamePlayingTimerMax = 210f;
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     private int plusPoint = 10;
     private int minusPoint = 5;
     private int totalPoint = 0;
+    private bool isAlertSent = false;
 
 
     private void Awake()
@@ -89,10 +92,16 @@ public class GameManager : MonoBehaviour
                 break;
             case State.GamePlaying:
                 gamePlayingTimer -= Time.deltaTime;
+                if(gamePlayingTimer <= 15f && !isAlertSent)
+                {
+                    OnTimeLeftAlert?.Invoke(this, EventArgs.Empty);
+                    isAlertSent = true;
+                }
                 if (gamePlayingTimer < 0)
                 {
                     state = State.GameOver;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
+                    OnGameOver?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.GameOver:
@@ -125,6 +134,7 @@ public class GameManager : MonoBehaviour
     {
         return gamePlayingTimer/gamePlayingTimerMax;
     }
+
 
     public string GetGamePlayingTimerFormatted()
     {

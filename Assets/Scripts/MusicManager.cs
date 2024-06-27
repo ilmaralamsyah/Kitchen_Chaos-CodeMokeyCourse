@@ -19,7 +19,17 @@ public class MusicManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        audioSource.volume = PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME, 0.7f);
+        audioSource.volume = PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME, 0.3f);
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.OnGameOver += Instance_OnGameOver;
+    }
+
+    private void Instance_OnGameOver(object sender, System.EventArgs e)
+    {
+        audioSource.Stop();
     }
 
     public void ChangeVolume(float volume)
